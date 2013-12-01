@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="format-detection" content="telephone=no" />
+        <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+        <link rel="stylesheet" type="text/css" href="css/index.css" />
+        <title>Hello World</title>
+    </head>
+    <body>
+    <div ng-controller="MyControlller">
+    <form action="">
+        <h1>Services</h1>
+        
+        <ul>
+            <!-- Loop through the services array, assign a click handler, and set or
+                remove the "active" css class if needed -->
+            <li ng-repeat="service in services" hm-touch="toggleActive(service)" ng-class="{active:service.active}">
+                <!-- Notice the use of the currency filter, it will format the price -->
+                {{service.name}} <span>{{service.price | currency}}</span>
+            </li>
+        </ul>
+
+        <div class="total">
+            <!-- Calculate the total price of all chosen services. Format it as currency. -->
+            Total: <span>{{total() | currency}}</span>
+        </div>
+    </form>
+    </div>
+    </body>
+    <script src="cordova.js" ></script>
+    <script src="js/angular.js" ></script>
+    <script src="js/gestures.js" ></script>
+    <script src="js/fusion.js" ></script>
+</html>
